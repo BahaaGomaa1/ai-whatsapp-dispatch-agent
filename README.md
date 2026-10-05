@@ -20,7 +20,7 @@ The entire automation is built using **n8n**, with WhatsApp communication handle
 
 The workflow connects the customer, AI Agent, WhatsApp captain groups, location processing, database, and dispatch logic into one automated system.
 
-![n8n Workflow](n8n-workflow.png)
+![n8n Workflow](screenshots/n8n-workflow.png)
 
 > **Note:** The workflow screenshot will be added to the `screenshots/` directory.
 
