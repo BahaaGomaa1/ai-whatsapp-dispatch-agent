@@ -1,0 +1,31 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# n8n local data
+.n8n/
+
+# Node.js
+node_modules/
+
+# Logs
+*.log
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Private workflow files
+workflow.private.json
+workflow.local.json
+
+# Credentials and secrets
+credentials.json
+secrets/
+*.pem
+*.key
