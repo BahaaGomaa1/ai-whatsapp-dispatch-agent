@@ -22,7 +22,33 @@ The workflow connects the customer, AI Agent, WhatsApp captain groups, location 
 
 ![n8n Workflow](screenshots/n8n-workflow.png)
 
-> **Note:** The workflow screenshot will be added to the `screenshots/` directory.
+---
+
+## 📱 WhatsApp Demo
+
+The AI Agent communicates with customers directly through WhatsApp, collects the required information, processes the request, and coordinates the dispatch workflow.
+
+### Customer Conversation
+
+![WhatsApp Demo 1](screenshots/whatsapp-demo-01.png)
+
+![WhatsApp Demo 2](screenshots/whatsapp-demo-02.png)
+
+![WhatsApp Demo 3](screenshots/whatsapp-demo-03.png)
+
+![WhatsApp Demo 4](screenshots/whatsapp-demo-04.png)
+
+![WhatsApp Demo 5](screenshots/whatsapp-demo-05.png)
+
+![WhatsApp Demo 6](screenshots/whatsapp-demo-06.png)
+
+![WhatsApp Demo 7](screenshots/whatsapp-demo-07.png)
+
+### Order Database
+
+After the order is confirmed, the system stores the order information for persistent tracking and management.
+
+![Order Database](screenshots/order-database.png)
 
 ---
 
@@ -101,7 +127,7 @@ AI Agent
 
 # 🧠 Why This Is More Than a Chatbot
 
-This project is designed to demonstrate the difference between a traditional chatbot and an operational AI Agent.
+This project demonstrates the difference between a traditional chatbot and an operational AI Agent.
 
 A traditional chatbot might only do this:
 
@@ -129,7 +155,7 @@ Order Dispatch
 Database
 ```
 
-The AI Agent is therefore part of the actual business operation instead of simply generating text responses.
+The AI Agent is therefore integrated into the operational workflow instead of simply generating text responses.
 
 ---
 
@@ -148,7 +174,7 @@ It is responsible for:
 * Calling the required tools
 * Communicating the final result to the customer
 
-The Agent can handle both Arabic and English conversations.
+The Agent supports both Arabic and English conversations.
 
 ---
 
@@ -194,7 +220,7 @@ The system uses WhatsApp groups to communicate with captains.
 
 Captains can send their location to the appropriate group.
 
-The workflow then stores the captain's information in an n8n Data Table.
+The workflow then stores captain information in an n8n Data Table.
 
 Example:
 
@@ -210,7 +236,7 @@ Captain
    └── Last Updated
 ```
 
-This information can later be used to determine which captain is closest to the customer's pickup location.
+This information can be used to determine which captain is closest to the customer's pickup location.
 
 ---
 
@@ -245,7 +271,7 @@ The current prototype uses an approximate speed of:
 25 km/h
 ```
 
-The estimated time is calculated from the distance.
+The estimated time is calculated from the distance:
 
 ```text
 ETA = Distance / Average Speed
@@ -298,8 +324,6 @@ The workflow contains several logical sections.
 
 Receives incoming events from Evolution API.
 
----
-
 ### Message Parser
 
 A JavaScript node processes incoming WhatsApp events and extracts information such as:
@@ -314,15 +338,11 @@ A JavaScript node processes incoming WhatsApp events and extracts information su
 
 It also handles different WhatsApp message formats.
 
----
-
 ### Customer Message Filter
 
 Separates private customer conversations from WhatsApp group messages.
 
 This prevents captain-group messages from being processed as normal customer requests.
-
----
 
 ### Location Processing
 
@@ -330,19 +350,13 @@ Customer location messages are detected and processed separately.
 
 The workflow can extract coordinates and generate a Google Maps location link.
 
----
-
 ### Captain Data Lookup
 
 The workflow retrieves captain records from an n8n Data Table.
 
----
-
 ### Distance Calculation
 
 JavaScript calculates the distance between the customer's pickup location and available captains.
-
----
 
 ### Group Service Detection
 
@@ -356,13 +370,9 @@ Food
 Passenger
 ```
 
----
-
 ### Captain Registration
 
 Captain registration messages are detected, normalized, and stored.
-
----
 
 ### PostgreSQL Chat Memory
 
@@ -371,8 +381,6 @@ Conversation history is stored using PostgreSQL Chat Memory.
 The customer's WhatsApp ID is used as the session identifier.
 
 This allows the AI Agent to maintain conversation context.
-
----
 
 ### PostgreSQL Order Storage
 
@@ -742,11 +750,17 @@ ai-whatsapp-dispatch-agent/
 ├── README.md
 ├── workflow.example.json
 ├── .gitignore
-├── LICENSE
 │
 └── screenshots/
     ├── n8n-workflow.png
-    └── whatsapp-demo.png
+    ├── whatsapp-demo-01.png
+    ├── whatsapp-demo-02.png
+    ├── whatsapp-demo-03.png
+    ├── whatsapp-demo-04.png
+    ├── whatsapp-demo-05.png
+    ├── whatsapp-demo-06.png
+    ├── whatsapp-demo-07.png
+    └── order-database.png
 ```
 
 ---
@@ -759,10 +773,12 @@ AI Automation & AI Agent Developer
 
 GitHub:
 
-`https://github.com/BahaaGomaa1`
+https://github.com/BahaaGomaa1
 
 ---
 
 ## ⭐ Project
 
-If you find this project interesting, feel free to explore the workflow and use the architecture as a starting point for your own AI automation projects.
+If you find this project useful or interesting, feel free to explore the workflow and use the architecture as a starting point for your own AI automation projects.
+
+If you find the project helpful, consider giving it a ⭐ on GitHub.
